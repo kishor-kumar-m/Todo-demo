@@ -1,0 +1,19 @@
+<div>
+    <h2>Create Todo</h2>
+    <form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+      <label for="title">Title</label>
+      <input id="title" formControlName="title" />
+  
+      <label for="description">Description</label>
+      <textarea id="description" formControlName="description"></textarea>
+  
+      <label for="dueDate">Due Date</label>
+      <input id="dueDate" type="date" formControlName="dueDate" />
+  
+      <label for="imageUrl">Image</label>
+      <input type="file" (change)="onFileSelected($event)" />
+  
+      <button type="submit">Create Todo</button>
+    </form>
+  </div>
+  

@@ -1,0 +1,9 @@
+todo-alert-app-frontend/node_modules/
+todo-alert-app/node_modules/
+
+todo-alert-app-frontend/dist/
+todo-alert-app-frontend/build/
+
+todo-alert-app/.env
+todo-alert-app/.env.local
+todo-alert-app/.env.*.local

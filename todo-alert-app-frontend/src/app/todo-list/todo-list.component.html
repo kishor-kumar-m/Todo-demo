@@ -1,0 +1,61 @@
+<div>
+    <h2>Todo List (Page {{ page }} of {{ totalPages }})</h2>
+  
+    <!-- Filter Controls -->
+    <div class="filter-controls">
+      <input [(ngModel)]="searchTerm" placeholder="Search Todos" (input)="onSearch()" />
+  
+      <select (change)="onFilterChange($event.target)">
+        <option value="all">All</option>
+        <option value="true">Completed</option>
+        <option value="false">Incomplete</option>
+      </select>
+    </div>
+  
+    <!-- Table for Todo Items -->
+    <table class="todo-table">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Title</th>
+          <th>Due Date</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let todo of todos">
+          <!-- Image Column -->
+          <td>
+            <div *ngIf="todo.imageUrl">
+              <!-- Check if the image is an external URL -->
+              <img *ngIf="todo.imageUrl.startsWith('http')" [src]="todo.imageUrl" alt="{{ todo.title }}" style="max-width: 100px; height: auto;" />
+              <!-- Handle local file paths by prepending the server URL -->
+              <img *ngIf="!todo.imageUrl.startsWith('http')" [src]="'http://localhost:3000/' + todo.imageUrl.replace('C:\\Users\\91812\\Desktop\\task\\todo-alert-app\\', '')" alt="{{ todo.title }}" style="max-width: 100px; height: auto;" />
+            </div>
+          </td>
+  
+          <!-- Title Column -->
+          <td>{{ todo.title }}</td>
+  
+          <!-- Due Date Column -->
+          <td>{{ todo.dueDate | date:'short' }}</td>
+  
+          <!-- Status Column -->
+          <td>{{ todo.completed ? 'Completed' : 'Incomplete' }}</td>
+  
+          <!-- Action Column (Mark as Completed Button) -->
+          <td>
+            <button *ngIf="!todo.completed" (click)="markAsCompleted(todo._id)" class="btn-completed">Mark as Completed</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <!-- Pagination Controls -->
+    <div class="pagination-controls">
+      <button (click)="goToPreviousPage()" [disabled]="page === 1">Previous</button>
+      <button (click)="goToNextPage()" [disabled]="page === totalPages">Next</button>
+    </div>
+  </div>
+  

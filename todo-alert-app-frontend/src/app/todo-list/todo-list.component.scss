@@ -1,0 +1,58 @@
+/* Basic table styling */
+.todo-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .todo-table th, .todo-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .todo-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+  .todo-table td img {
+    max-width: 100px;
+    height: auto;
+  }
+  
+  .btn-completed {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+  
+  .btn-completed:hover {
+    background-color: #ff1a1a;
+  }
+  
+  /* Pagination controls styling */
+  .pagination-controls {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .pagination-controls button {
+    background-color: #ff7f50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .pagination-controls button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
